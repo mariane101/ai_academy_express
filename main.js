@@ -29,7 +29,7 @@ app.use(methodOverride("_method", {
 methods: ["POST", "GET"]
 
 }));
-
+app.use(express.urlencoded({ extended: false }));
 // Routes pour les utilisateurs
 app.get("/users", usersController.index, usersController.indexView);
 app.get("/users/new", usersController.new);
@@ -54,7 +54,7 @@ app.set("view engine", "ejs");
 // Middlewares
 app.use(layouts);
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+
 app.use(express.static("public"));
 
 // Routes principales
